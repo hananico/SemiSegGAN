@@ -1,0 +1,6 @@
+*.html
+results/*
+*.txt
+*~
+nohup.txt
+images
