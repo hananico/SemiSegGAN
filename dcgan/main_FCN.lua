@@ -193,20 +193,6 @@ local function upsample_filt(size)
 end
 ----------------------------------------------------------------------------
 
-local function interp(net, layers)
-   for l in layers
-       m, k, h, w = net.params[l][0].data.shape
-       if m != k and k != 1:
-           print 'input + output channels need to be the same or |output|1 == 1'
-           raise
-       if h != w:
-           print 'filters need to be square'
-           raise
-       filt = upsample_filt(h)
-       net.params[l][0].data[range(m), range(k), :, :] = filt
-	end
-end
-
 local function weights_init_up(m)
    local name = torch.type(m)
    if name:find('SpatialFullConvolution') then

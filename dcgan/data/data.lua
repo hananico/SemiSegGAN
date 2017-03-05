@@ -33,6 +33,9 @@ function data.new(n, dataset_name, opt_)
   elseif dataset_name == 'eeg' then
 		print("NASIM, initializing EEG dataset")
     donkey_file = 'donkey_folder_eeg_noaug.lua'
+  elseif dataset_name == 'voc' then
+		print("NASIM, initializing VOC dataset")
+    donkey_file = 'donkey_folder_semiGAN.lua'
   else
     error('Unknown dataset: ' .. dataset_name)
   end
